@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight"
+@tailwind utilities;
+@theme {  --color-uzk-dark: #0C3450;  --color-uzk-light: #155072;}
