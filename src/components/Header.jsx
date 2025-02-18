@@ -4,7 +4,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="bg-uzk-dark text-white p-4">
+    <header className="bg-uzk-dark text-white p-2">
       <div className="flex justify-between items-center mb-4">
         
         {/* Buttons links */}
