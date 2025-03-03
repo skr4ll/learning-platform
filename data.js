@@ -83,8 +83,8 @@ const messages = [
     {
         id : 0,
         from : "test0@example.com",
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
         folder_id : 0, // 0 ist Posteingang
+        datetime: new Date('2025-02-17T12:34:56.789Z'),
         subject : "Testbetreff 0",
         message: messages[0],
     },
@@ -152,23 +152,34 @@ const messages = [
         subject : "Testbetreff 8",
         message: "testtest",
     },
+    {
+        id : 9,
+        from : "test0@example.com",
+        folder_id : 1, // 0 ist Posteingang
+        datetime: new Date('2025-02-17T12:34:56.789Z'),
+        subject : "Testbetreff 0",
+        message: messages[0],
+    },
 ]
 
 export const folders = [
     {
         id: "0",
         parent : "default",
-        folder_name: "Posteingang"
+        folder_name: "Posteingang",
+        mails: emails,
     },
     {
         id: "1",
         parent : "default",
-        folder_name: "Gesendet"
+        folder_name: "Gesendet",
+        mails: [],
     },
     {
         id: "2",
         parent : "default",
-        folder_name: "Papierkorb"
+        folder_name: "Papierkorb",
+        mails: [],
     },
 ]
   

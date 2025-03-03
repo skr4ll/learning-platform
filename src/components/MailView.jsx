@@ -4,6 +4,8 @@ import { transformDate, isEmpty } from "../../util";
   return (
       // Container-div MailView
       <div className="bg-uzk-light h-145 overflow-auto rounded-xl">
+        
+        {/* Wird nur angezeigt wenn keine Mail geklickt wurde */}
         <p className={no_mail_selected ? "text-center text-5xl pt-[35%] text-white" : "hidden"}>
           {no_mail_selected && "Bitte eine Email anklicken ..."}</p>
         
