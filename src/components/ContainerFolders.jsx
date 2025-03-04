@@ -8,17 +8,17 @@ const ContainerFolders = () => {
     const handleClick = (fname) => {
         setFolder_name(fname);
     }
-    const test = folders.find(f => f.folder_name === folder_name);
-    console.log(test);
+    const curr_folder = folders.find(f => f.folder_name === folder_name);
+
     return (
-    <div className="flex">
-        <div className="bg-uzk-light mr-1 rounded-xl h-145 overflow-auto"> 
+    <div className="flex h-[77vh]">
+        <div className="bg-uzk-light rounded-xl overflow-auto w-[18vw] lg:w-[9vw]"> 
             {folders.map((folder) =>(<div className="pl-1" onClick={() => 
                 {handleClick(folder.folder_name)}} key={folder.id}>
                 <EmailFolder {...folder} /></div>))}
         </div>
-        <div>
-            <ContainerEmails emails={(folders.find(f => f.folder_name === folder_name)).mails} />
+        <div className="w-[81vw] lg:w-[90vw]">
+            <ContainerEmails {...curr_folder} />
         </div>
     </div>
        

@@ -79,88 +79,21 @@ const messages = [
     tristique tempus. Curabitur rhoncus gravida libero, quis aliquam erat facilisis at. Etiam tincidunt lorem vitae rhoncus semper.`
   ];
 
-  export const emails = [
-    {
-        id : 0,
-        from : "test0@example.com",
-        folder_id : 0, // 0 ist Posteingang
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
-        subject : "Testbetreff 0",
-        message: messages[0],
-    },
-    {
-        id : 1,
-        folder_id : 0,
-        from : "test1@example.com",
-        datetime: new Date('2025-01-01T10:37:37.377Z'), 
-        subject : "Testbetreff 1",
-        message: messages[0] + messages[1] + messages[2],
-    },
-    {
-        id : 2,
-        folder_id : 0,
-        from : "test2@example.com",
-        datetime: new Date('2025-01-01T10:37:37.377Z'),  
-        subject : "Test 2",
-        message: messages[3] + messages[4] + messages[5],
-    },
-    {
-        id : 3,
-        folder_id : 0,
-        from : "test3@example.com",
-        datetime: new Date('2025-01-01T13:37:37.377Z'), 
-        subject : "Test 3",
-        message: messages[6] + messages[7] + messages[8],
-    },
-    {
-        id : 4,
-        folder_id : 0,
-        from : "test4@example.com",
-        datetime: new Date('2025-01-01T13:37:37.377Z'), 
-        subject : "Test 4",
-        message: messages[9] + messages[0] + messages[1],
-    },
-    {
-        id : 5,
-        folder_id : 0,
-        from : "test5@example.com",
-        datetime: new Date('2025-01-01T13:37:37.377Z'), 
-        subject : "Test 5",
-        message: "testtest",
-    },
-    {
-        id : 6,
-        from : "test6@example.com",
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
-        folder_id : 0, // 0 ist Posteingang
-        subject : "Testbetreff 6",
-        message: "testtest",
-    },
-    {
-        id : 7,
-        from : "test7@example.com",
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
-        folder_id : 0, // 0 ist Posteingang
-        subject : "Testbetreff 7",
-        message: "testtest",
-    },
-    {
-        id : 8,
-        from : "test8@example.com",
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
-        folder_id : 0, // 0 ist Posteingang
-        subject : "Testbetreff 8",
-        message: "testtest",
-    },
-    {
-        id : 9,
-        from : "test0@example.com",
-        folder_id : 1, // 0 ist Posteingang
-        datetime: new Date('2025-02-17T12:34:56.789Z'),
-        subject : "Testbetreff 0",
-        message: messages[0],
-    },
-]
+  const emails = Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    from: `test${i}@example.com`,
+    folder_id: Math.floor(Math.random() * 3), // 0: Posteingang, 1: Gesendet, 2: Papierkorb
+    datetime: new Date(
+        2025, 
+        Math.floor(Math.random() * 12), 
+        Math.floor(Math.random() * 28) + 1, 
+        Math.floor(Math.random() * 24), 
+        Math.floor(Math.random() * 60), 
+        Math.floor(Math.random() * 60)
+    ),
+    subject: `Testbetreff ${i}`,
+    message: Array.from({ length: Math.floor(Math.random() * 5) + 1 }, () => messages[Math.floor(Math.random() * messages.length)]).join(' '),
+}));
 
 export const folders = [
     {
@@ -173,13 +106,13 @@ export const folders = [
         id: "1",
         parent : "default",
         folder_name: "Gesendet",
-        mails: [],
+        mails: [emails[0]],
     },
     {
         id: "2",
         parent : "default",
         folder_name: "Papierkorb",
-        mails: [],
+        mails: [emails[1]],
     },
 ]
   
