@@ -1,7 +1,7 @@
 // Beispieldaten zum Testen, z. B. Kursdaten, Testemails etc.
 
 // Beispieldaten von Philipp >>> Postfach <<<
-
+let id = 2; // Zählvariable in den Ordnern
 const messages = [
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel magna maximus, 
     rhoncus velit non, finibus quam. Sed pretium, diam eu euismod tincidunt, dui tortor sollicitudin nunc, 
@@ -79,7 +79,7 @@ const messages = [
     tristique tempus. Curabitur rhoncus gravida libero, quis aliquam erat facilisis at. Etiam tincidunt lorem vitae rhoncus semper.`
   ];
 
-  const emails = Array.from({ length: 50 }, (_, i) => ({
+  export const emails = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     from: `test${i}@example.com`,
     folder_id: Math.floor(Math.random() * 3), // 0: Posteingang, 1: Gesendet, 2: Papierkorb
@@ -95,24 +95,13 @@ const messages = [
     message: Array.from({ length: Math.floor(Math.random() * 5) + 1 }, () => messages[Math.floor(Math.random() * messages.length)]).join(' '),
 }));
 
-export const folders = [
-    {
-        id: "0",
-        parent : "default",
-        folder_name: "Posteingang",
-        mails: emails,
-    },
-    {
-        id: "1",
-        parent : "default",
-        folder_name: "Gesendet",
-        mails: [emails[0]],
-    },
-    {
-        id: "2",
-        parent : "default",
-        folder_name: "Papierkorb",
-        mails: [emails[1]],
-    },
-]
+// Konstruktor für die Ordnerobjekte
+export function Folder(parent, folder_name) {
+    this.id =  id + 1;
+    this.parent = parent;
+    this.folder_name = folder_name;
+    this.clicked = false;
+    this.has_children = false;
+    id += 1;
+  }
   
