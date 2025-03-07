@@ -1,7 +1,7 @@
 // Beispieldaten zum Testen, z. B. Kursdaten, Testemails etc.
 
 // Beispieldaten von Philipp >>> Postfach <<<
-let id = 2; // Zählvariable in den Ordnern
+
 const messages = [
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel magna maximus, 
     rhoncus velit non, finibus quam. Sed pretium, diam eu euismod tincidunt, dui tortor sollicitudin nunc, 
@@ -96,12 +96,13 @@ const messages = [
 }));
 
 // Konstruktor für die Ordnerobjekte
-export function Folder(parent, folder_name) {
-    this.id =  id + 1;
-    this.parent = parent;
-    this.folder_name = folder_name;
-    this.clicked = false;
-    this.has_children = false;
-    id += 1;
+export class Folder {
+  static next_id = 3;
+  constructor(parent_id, folder_name) {
+      this.id = Folder.next_id++;
+      this.parent_id = parent_id;
+      this.folder_name = folder_name;
+      this.clicked = false;
   }
+}
   
