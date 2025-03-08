@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { transformDate } from "../../util";
+import { transformDate } from "../../../util";
 const Email = (props) => {
     let datum = transformDate(props.datetime)
     const [email_clicked, setEmail_clicked] = useState(false);

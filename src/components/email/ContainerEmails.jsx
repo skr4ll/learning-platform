@@ -1,4 +1,4 @@
-import Email from "../components/Email";
+import Email from "./Email";
 import MailView from "./MailView";
 import { useState } from "react";
 
