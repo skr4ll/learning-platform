@@ -1,4 +1,4 @@
-import { transformDate, isEmpty } from "../../util";
+import { transformDate, isEmpty } from "../../../util";
   const MailView = (selected_mail) => {
   let no_mail_selected = isEmpty(selected_mail);
   return (

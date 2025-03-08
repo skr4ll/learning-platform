@@ -1,4 +1,4 @@
-import { emails, Folder } from "../../data";
+import { emails, Folder } from "../../../data";
 import ContainerEmails from "./ContainerEmails";
 import { useState } from "react";
 import ContextMenu from "./ContextMenu";

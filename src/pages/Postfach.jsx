@@ -1,6 +1,6 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import ContainerFolders from "../components/ContainerFolders";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ContainerFolders from "../components/email/ContainerFolders";
 
 const Postfach = () => {
 	return (
