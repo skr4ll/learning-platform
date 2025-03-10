@@ -1,8 +1,8 @@
-const Course = () => {
+const Date = () => {
 return (
     <div>
         hello
     </div>
 );
 }
-export default Course;
+export default Date;
