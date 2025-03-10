@@ -105,4 +105,67 @@ export class Folder {
       this.clicked = false;
   }
 }
-  
+
+//Termine der Veranstaltung
+export const dates = [
+    {
+        date: new Date('2024, 10, 09'),
+        topic: "Organisatorisches"
+    },
+    {
+        date: new Date('2024, 10, 16'),
+        topic: "HTML-Basics"
+    },
+    {
+        date: new Date('2024, 10, 23'),
+        topic: "CSS-Basics"
+    },
+    {
+        date: new Date('2024, 10, 30'),
+        topic: "JavaScript-Basics"
+    },
+    {
+        date: new Date('2024, 11, 06'),
+        topic: "Lokale Server"
+    },
+    {
+        date: new Date('2024, 11, 13'),
+        topic: "Templates"
+    },
+    {
+        date: new Date('2024, 11, 20'),
+        topic: "JavaScript-Bibliotheken"
+    },
+    {
+        date: new Date('2024, 11, 27'),
+        topic: "User Experience"
+    },
+    {
+        date: new Date('2024, 12, 04'),
+        topic: "Array-Funktionen"
+    },
+    {
+        date: new Date('2024, 12, 11'),
+        topic: "Zusammenfassung Vanilla JS"
+    },
+    {
+        date: new Date('2024, 12, 18'),
+        topic: "React-Einstieg (Video)"
+    },
+    {
+        date: new Date('2024, 01, 08'),
+        topic: "React: Components"
+    },
+    {
+        date: new Date('2024, 01, 15'),
+        topic: "React: Props"
+    },
+    {
+        date: new Date('2024, 01, 22'),
+        topic: "React: State"
+    },
+    {
+        date: new Date('2024, 01, 29'),
+        topic: "React: Hooks"
+    }
+]
