@@ -10,7 +10,7 @@ const Veranstaltung = () => {
       <h1 className="text-4xl font-bold">Ausgewählte Veranstaltung</h1>
       
       <CourseDate {...dates[0]} />
-      <CourseDate {...dates[1]} />
+      <CourseDate {...dates[1]} /> <br />
       
 
       <Footer />
