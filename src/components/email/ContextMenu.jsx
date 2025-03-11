@@ -6,17 +6,20 @@ const ContextMenu = (props) => {
         e.preventDefault(); 
         const formData = new FormData(e.target);
         add_name = formData.get("folder_name");
-        props.onAdd(add_name);
+        if(add_name){
+            props.onAdd(add_name);
+        } 
         props.handleClick();
       };
 
-      // Je nach type (Folder/Email) wird das ContexMenu gefüllt
+    // Je nach type (Folder/Email) wird das ContexMenu gefüllt
     
     // Bereich Ordner
     const [show_add_field, setShow_add_field] = useState(false);
     if (props.type === "folder"){        
-        // Kontextmenü bei Klick in freie Fläche um Ordner auf oberster Ebene anzulegen
-        if (props.called_by.id === -1){
+        // Ist called_by.id == 2 dann handelt es sich um den Papierkorb
+        console.log(props.called_by.id);
+        if (props.called_by.id === 2){
             return (
                 <>
                 {props?.visible && (
@@ -24,51 +27,53 @@ const ContextMenu = (props) => {
                         className="absolute bg-gray-800 text-white shadow-lg rounded p-1 z-50"
                         style={{ top: props.y, left: props.x }}
                     >
-                        <div className="p-1 hover:bg-gray-700" onMouseEnter={() => {setShow_add_field(true)}}>
-                            ➕ Neuer Ordner
-                            <div className="mt-[1.5vh]" onMouseLeave={() =>{setShow_add_field(false)}}>
-                                {show_add_field && 
-                                    <form  onSubmit={handleSubmit}  >
-                                        <label> ✎ Ordnername:</label>
-                                        <input className="border-1 rounded ml-[0.5vw]" type="text" name="folder_name"></input>
-                                        <button className="p-[0.5vw] ml-[0.5vw] border-1 rounded hover:bg-green-500"
-                                        type="submit"
-                                        >
-                                        Hinzufügen
-                                        </button> 
-                                    </form>     
-                                }
-                            </div>
+                    <button className="hover:bg-green-800 border-1 rounded p-1">
+                        🗑 Papierkorb leeren
+                    </button>
+                    </div>
+                )}
+                </>
+            );
+        }
+        else{
+            return (
+                <>
+                {props?.visible && (
+                <div 
+                    className="absolute bg-gray-800 text-white shadow-lg rounded p-1"
+                    style={{ top: props.y, left: props.x }}
+                >
+                    <div onClick={() => {setShow_add_field(true)}}>
+                        {props.called_by.id === -1 && (<div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]">
+                                                        ➕ Neuer Ordner</div>)}
+                        {props.called_by.id > 2 && props.called_by.parent_id === -1 &&
+                        (<div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]">
+                                                        ➕ Neuer UnterOrdner</div>)}
+                    </div>
+                    <div onClick={() => {setShow_add_field(true)}}>
+                        {props.called_by.id > 2 && !show_add_field && (<div className="hover:bg-green-800 border-3 rounded p-1">
+                                                        ❌ Ordner löschen</div>)}
+                    </div>
+                        <div className="mt-[1.5vh]">
+                            {show_add_field && 
+                            <form  onSubmit={handleSubmit}  >
+                                <label> ✎ Ordnername:</label>
+                                <input className="border-1 rounded h-[3vh] ml-[0.5vw]" 
+                                    type="text" name="folder_name"></input>
+                                <button className="rounded hover:bg-white text-4xl"
+                                type="submit"
+                                >
+                                ✅
+                                </button> 
+                            </form>     
+                            }
                         </div>
                     </div>
                 )}
             </>
             );
         }
-        else{
-            return (
-            <>
-            {props?.visible && (
-                <ul 
-                    className="absolute bg-gray-800 text-white shadow-lg rounded p-2 z-50"
-                    style={{ top: props.y, left: props.x }} onMouseLeave={props.handleClick}
-                >
-                    <li className="flex p-2 hover:bg-gray-700 cursor-pointer" onMouseEnter={() => {setShow_add_field(true)}}
-                        onMouseLeave={() =>{setShow_add_field(false)}}  onClick={props.onAdd}>
-                        ➕ Unterordner Hinzufügen
-                        <div className="ml-5 flex" >{show_add_field && "test"}</div>
-                    </li>
-                    <li className="p-2 hover:bg-gray-700 cursor-pointer text-red-400">
-                        ❌ Ordner löschen
-                    </li>
-                </ul>
-            )}
-        </>
-        );
-    }
-
-    }
-    
+    }  
     // Bereich Emails
     else{
         alert("EMAIL");

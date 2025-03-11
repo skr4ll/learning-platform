@@ -1,22 +1,21 @@
-import { transformDate, isEmpty } from "../../../util";
+import { transformDate} from "../../../util";
   const MailView = (selected_mail) => {
-  let no_mail_selected = isEmpty(selected_mail);
   return (
       // Container-div MailView
       <div className="bg-uzk-light overflow-auto rounded-xl mt-0.5 ml-[0.5vw] h-full">
         
         {/* Wird nur angezeigt wenn keine Mail geklickt wurde */}
-        <p className={no_mail_selected ? "text-center text-[3vw] pt-[30vh] text-white" : "hidden"}>
-          {no_mail_selected && "Bitte eine Email anklicken ..."}</p>
+        <p className={!selected_mail.clicked ? "text-center text-[3vw] pt-[30vh] text-white" : "hidden"}>
+          {!selected_mail.clicked && "Bitte eine Email anklicken ..."}</p>
         
         {/* Container-div Nachrichtenelemente */}
-        <div className={no_mail_selected ? "hidden" : ""}>
+        <div className={!selected_mail.clicked ? "hidden" : ""}>
           
           {/* Nachrichten-Header */}
           <div className="bg-uzk-dark m-5 p-3 rounded-xl text-[2vw] sm:text-[0.5vh] lg:text-xl text-white">
             <div className="flex justify-between">
               <div>Von: {selected_mail.from}</div>
-              <div>{!no_mail_selected && transformDate(selected_mail.datetime)}</div>
+              <div>{selected_mail.clicked && transformDate(selected_mail.datetime)}</div>
             </div>
             <div className="text-center font-bold">{selected_mail.subject}</div>
           </div>
