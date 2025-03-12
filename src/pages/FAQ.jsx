@@ -37,6 +37,22 @@ const FAQ = () => {
 		<Header />
 		<div className="flex justify-center items-center h-screen">
 			<h1 className="text-4xl font-bold">FAQ</h1>
+			< Accordion type="single" collapsible>
+				{categories.map ((category,categoryIndex) => (
+	                <AccordionItem key={categoryIndex} value={"category-"+categoryIndex}
+				<AccordionItem.Trigger className="text-2xl font-bold">{category.title}</AccordionItem.Trigger>
+	                        <AccordionItem.Content>
+	                           <Accordion type="single" collapsible>
+					   {categories.faqs.map((faq,faqIndex) => (
+					   <AccordionItem key={faqIndex} value={"faq-" + categoryIndex + "-" + faqIndex}
+						   <AccordionItem.Trigger classname="font-semibold">{faq.question}</AccordionItem.Trigger>
+					            <AccordionItem.Content>{faq.answer}</AccordionItem.Content>
+					   </AccordionItem>
+					   ))}
+				   </Accordion>
+	                       </AccordionItem.Content>
+	                    </AccordionItem>
+			</Accordion>
 			
 		</div>
 		<Footer />
