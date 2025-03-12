@@ -82,6 +82,7 @@ const messages = [
   export const emails = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     from: `test${i}@example.com`,
+    to:"user@learning-platform.de",
     folder_id: Math.floor(Math.random() * 3), // 0: Posteingang, 1: Gesendet, 2: Papierkorb
     datetime: new Date(
         2025, 
@@ -93,6 +94,7 @@ const messages = [
     ),
     subject: `Testbetreff ${i}`,
     message: Array.from({ length: Math.floor(Math.random() * 5) + 1 }, () => messages[Math.floor(Math.random() * messages.length)]).join(' '),
+    clicked: false,
 }));
 
 // Konstruktor für die Ordnerobjekte
