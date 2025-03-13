@@ -1,7 +1,6 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import App from "./App"
-import * as Accordion from "@radix-ui/react-accordion";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Accordion, { AccordionItem, AccordionTrigger, AccordionContent } from "../components/Accordion";
 
 const FAQ = () => {
 	const categories = [
