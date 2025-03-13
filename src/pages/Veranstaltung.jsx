@@ -1,18 +1,66 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import CourseDate from "../components/course/CourseDate";
+import Material from "../components/course/Material";
+import Assignment from "../components/course/Assignment";
 import { dates } from "../../data";
+import { SlCalender } from "react-icons/sl";
+import { SlClock } from "react-icons/sl";
+import { SlLocationPin } from "react-icons/sl";
+import { SlUser } from "react-icons/sl";
+import Calendar from 'react-calendar';
 
 const Veranstaltung = () => {
+  const ret = [];
+  for (let i = 0; i < dates.length; i++) {
+    ret.push(<><CourseDate {...dates[i]} /></>);
+  }
   return (
-    <>       
+    <>
       <Header />
-      <h1 className="text-4xl font-bold">Ausgewählte Veranstaltung</h1>
-      
-      <CourseDate {...dates[0]} />
-      <CourseDate {...dates[1]} /> <br />
-      
-
+      <h1 className="text-3xl text-center font-bold m-2"><span className="bg-cyan-200">
+        Basissysteme der Informationsverabeitung 1
+      </span></h1>
+      <p className="text-xl text-center m-2">
+        <SlCalender className="inline" /> Mittwoch | <SlClock className="inline" /> 10:00 Uhr |
+        <SlLocationPin className="inline" /> S93 (Philosophikum) | <SlUser className="inline" /> Susanne Kurz
+      </p>
+      <p className="ml-2 mr-2">In diesem Kurs werden die Grundlagen von HTML, CSS und JavaScript
+        behandlet, um anschließend mit React arbeiten zu können.
+        Währenddessen werden außerdem weitere nützliche Frameworks für
+        JavaScript in Kurzvorträgen vorgestellt und ein Blick auf UX geworfen.
+      </p>
+      <br />
+      <div className="flex-container flex justify-evenly">
+        <div className="mb-[14vh]">
+          <p className="text-center font-bold text-2xl">Termine</p>
+          {ret}
+        </div>
+        <div>
+          <p className="text-center font-bold text-2xl">Material</p>
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          <Material />
+          
+        </div>
+        <div>
+          <p className="text-center font-bold text-2xl">Abgaben</p>
+          <Assignment />
+        </div>
+        <div>
+          <p className="text-center font-bold text-2xl">Kalender</p>
+          <Calendar />
+        </div>
+      </div>
       <Footer />
     </>
 
