@@ -4,6 +4,8 @@ import CourseDate from "../components/course/CourseDate";
 import Material from "../components/course/Material";
 import Assignment from "../components/course/Assignment";
 import { dates } from "../../data";
+import { materials } from "../../data";
+import { assignments } from "../../data";
 import { SlCalender } from "react-icons/sl";
 import { SlClock } from "react-icons/sl";
 import { SlLocationPin } from "react-icons/sl";
@@ -11,10 +13,21 @@ import { SlUser } from "react-icons/sl";
 import Calendar from 'react-calendar';
 
 const Veranstaltung = () => {
-  const ret = [];
+  const dateArr = [];
   for (let i = 0; i < dates.length; i++) {
-    ret.push(<><CourseDate {...dates[i]} /></>);
+    dateArr.push(<CourseDate {...dates[i]} />);
   }
+
+  const materialArr = [];
+  for (let i = 0; i < materials.length; i++) {
+    materialArr.push(<Material {...materials[i]} />);
+  }
+
+  const assignmentArr = [];
+  for (let i = 0; i < assignments.length; i++) {
+    assignmentArr.push(<Assignment {...assignments[i]} />);
+  }
+
   return (
     <>
       <Header />
@@ -34,31 +47,19 @@ const Veranstaltung = () => {
       <div className="flex-container flex justify-evenly">
         <div className="mb-[14vh]">
           <p className="text-center font-bold text-2xl">Termine</p>
-          {ret}
+          {dateArr}
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Material</p>
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          <Material />
-          
+          {materialArr}
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Abgaben</p>
-          <Assignment />
+          {assignmentArr}
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Kalender</p>
-          <Calendar />
+          <Calendar className="w-70 text-[2.5vh] text-center bg-indigo-50"/>
         </div>
       </div>
       <Footer />
