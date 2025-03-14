@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Accordion, { AccordionItem, AccordionTrigger, AccordionContent } from "../components/Accordion";
+import Accordion, { AccordionItem, AccordionTrigger, AccordionContent } from "../components/accordion/Accordion"
 
 const FAQ = () => {
 	const categories = [
