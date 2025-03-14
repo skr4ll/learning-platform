@@ -33,30 +33,34 @@ answer: " 1. Klicken Sie auf den Titel des Studienprogrammes.2. ILIAS zeigt eine
     <>
 		<Header />
 		<div className="flex justify-center items-center h-screen">
-			<h1 className="text-4xl font-bold">FAQ</h1>
-			< Accordion type="single" collapsible >
-				{categories.map ((category,categoryIndex) => (
-	                <AccordionItem key={categoryIndex} value={"category-"+categoryIndex}>
-					<AccordionItem.Trigger className="text-2xl font-bold">
-					{category.title} </AccordionItem.Trigger>
-				
-	                        <AccordionItem.Content>
-	                           <Accordion type="single" collapsible>
-					   {categories.faqs.map((faq,faqIndex) => (
-					   <AccordionItem key={faqIndex} value={"faq-" + categoryIndex + "-" + faqIndex}>
-						   <AccordionItem.Trigger classname="font-semibold">{faq.question}</AccordionItem.Trigger>
-					            <AccordionItem.Content>{faq.answer}</AccordionItem.Content>
-					   </AccordionItem>
-					   ))}
-				   </Accordion>
-	                       </AccordionItem.Content>
-	                    </AccordionItem>
-				))}
-			</Accordion>
-			
-		</div>
-		<Footer />
-	</>
+		<h1 className="text-4xl font-bold text-center text-gray-900 mb-8">FAQ</h1>
+        <div className="max-w-3xl mx-auto space-y-6">
+          {categories.map((category, categoryIndex) => (
+            <div key={categoryIndex} className="bg-white shadow-lg rounded-lg overflow-hidden">
+              <h2 className="text-2xl font-semibold text-gray-800 p-6 bg-gray-50">
+                {category.title}
+              </h2>
+              <div className="divide-y divide-gray-200">
+                {category.faqs.map((faq, faqIndex) => (
+                  <Accordion key={faqIndex} type="single" collapsible>
+                    <AccordionItem value={`faq-${categoryIndex}-${faqIndex}`}>
+                      <AccordionTrigger className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-900 p-6 hover:bg-gray-50 focus:outline-none">
+                        <span>{faq.question}</span>
+                        <span className="ml-4">+</span>
+                      </AccordionTrigger>
+                      <AccordionContent className="p-6 pt-0 text-gray-600">
+                        <p>{faq.answer}</p>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
