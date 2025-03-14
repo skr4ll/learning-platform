@@ -37,18 +37,18 @@ answer: " 1. Klicken Sie auf den Titel des Studienprogrammes.2. ILIAS zeigt eine
         <div className="max-w-3xl mx-auto space-y-6">
           {categories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <h2 className="text-2xl font-semibold text-gray-800 p-6 bg-gray-50">
+              <h2 className="text-2xl font-semibold text-blue-600-6 bg-blue-100">
                 {category.title}
               </h2>
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-blue-800">
                 {category.faqs.map((faq, faqIndex) => (
                   <Accordion key={faqIndex} type="single" collapsible>
                     <AccordionItem value={`faq-${categoryIndex}-${faqIndex}`}>
-                      <AccordionTrigger className="w-full flex justify-between items-center text-left text-lg font-medium text-gray-900 p-6 hover:bg-gray-50 focus:outline-none">
+                      <AccordionTrigger className="w-full flex justify-between items-center text-left text-lg font-medium text-blue-600 p-6 hover:bg-blue-100 focus:outline-none">
                         <span>{faq.question}</span>
                         <span className="ml-4">+</span>
                       </AccordionTrigger>
-                      <AccordionContent className="p-6 pt-0 text-gray-600">
+                      <AccordionContent className="p-6 pt-0 bg-blue-50 text-blue-800">
                         <p>{faq.answer}</p>
                       </AccordionContent>
                     </AccordionItem>
