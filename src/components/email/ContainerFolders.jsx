@@ -52,34 +52,34 @@ const ContainerFolders = () => {
         selectFolder(folder_to_add);
     }  
 
-    const deleteFolder = (to_delete_folder) => {
-        // Case: Papierkorb (Hier wird nicht der Ordner gelöscht, sondern nur der Papierkorb geleert)
-        // Dies ist die einzige Aktion bei der Mails wirklich gelöscht werden, sonst wird nur deren Ordner ID auf 2 gesetzt.
-        if (to_delete_folder.id === 2){
-            emails = emails.reduce((p, email) => (email.folder_id !== 2 && p.push(email),p),[]);
-            if (curr_folder.id === 2) setCurr_folder(folders[1]);
-        }
-        // Case: Parent ist root (Alle mails werden in Posteingang (PE) verschoben und alle child Ordner gelöscht (Mails auch in PE))
-        else if (to_delete_folder.parent_id === -1){
-            let child_folders = folders.filter(f => f.parent_id === to_delete_folder.id);
-            let fids_to_check = [to_delete_folder.id, ...child_folders.map(cf => cf.id)];
-            emails.forEach (e => {
-                if (fids_to_check.includes(e.folder_id)){
-                    e.folder_id = 0;
-                }
-            });
-            setFolders(folders.filter(f => !fids_to_check.includes(f.id)));
-        }
-        // Case: Else = Der Ordner ist ein Unterordner (Alle mails werden in Parentordner verschoben)
-        else {
-            emails.forEach (e => {
-                if (e.folder_id === to_delete_folder.id){
-                    e.folder_id = to_delete_folder.parent_id;
-                }
-            });
-            setFolders(folders.filter(f => f.id !== to_delete_folder.id));
-        }    
-    };
+    // const deleteFolder = (to_delete_folder) => {
+    //     // Case: Papierkorb (Hier wird nicht der Ordner gelöscht, sondern nur der Papierkorb geleert)
+    //     // Dies ist die einzige Aktion bei der Mails wirklich gelöscht werden, sonst wird nur deren Ordner ID auf 2 gesetzt.
+    //     if (to_delete_folder.id === 2){
+    //         emails = emails.reduce((p, email) => (email.folder_id !== 2 && p.push(email),p),[]);
+    //         if (curr_folder.id === 2) setCurr_folder(folders[1]);
+    //     }
+    //     // Case: Parent ist root (Alle mails werden in Posteingang (PE) verschoben und alle child Ordner gelöscht (Mails auch in PE))
+    //     else if (to_delete_folder.parent_id === -1){
+    //         let child_folders = folders.filter(f => f.parent_id === to_delete_folder.id);
+    //         let fids_to_check = [to_delete_folder.id, ...child_folders.map(cf => cf.id)];
+    //         emails.forEach (e => {
+    //             if (fids_to_check.includes(e.folder_id)){
+    //                 e.folder_id = 0;
+    //             }
+    //         });
+    //         setFolders(folders.filter(f => !fids_to_check.includes(f.id)));
+    //     }
+    //     // Case: Else = Der Ordner ist ein Unterordner (Alle mails werden in Parentordner verschoben)
+    //     else {
+    //         emails.forEach (e => {
+    //             if (e.folder_id === to_delete_folder.id){
+    //                 e.folder_id = to_delete_folder.parent_id;
+    //             }
+    //         });
+    //         setFolders(folders.filter(f => f.id !== to_delete_folder.id));
+    //     }    
+    // };
 
     // Mapping der Folder in das Container Element
     const mapFolders = () => { 
