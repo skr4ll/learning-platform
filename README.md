@@ -1,4 +1,6 @@
 React Abschlussprojekt
+--> Vercel:
+https://learning-platform-seven-amber.vercel.app/
 
 Die Arbeitsaufteilung sieht wiefolgt aus:
 Login: Philipp, Marilis
@@ -6,15 +8,14 @@ Dashboard: Linea
 Veranstaltung: Marilis
 FAQ: Khanh
 Postfach: Philipp
-
-
-Dashboard:
-Auf dem Dashboard ist auf der linken Seite sind Informationen über die Veranstaltungen wie Name der Veranstaltung, Dozent, Datum und Uhrzeit und Institut. Wenn man auf die Cards klickt, sollte die Veranstaltung geöffnet werden. Momentan wird man nur zu schon bestehenden Veranstaltung geleitet. Auf der rechten Seite sind aktuelle Informationen wie E-Mails, File Uploads oder Deadlines. 
-
 Header and Footer: Alle
+
 
 Unsere Website ist eine Lernplattform, die sich an ILIAS orientiert. Zur Navigation zwischen den einzelnen Seiten wird react-router-dom verwendet. Die Routen wurden in App.jsx konfiguriert.
 Die default landing page ist Login.jsx. Sie wird über die Route / angesprochen. Alle weiteren Verlinkungen laufen über den Header/Footer.
+
+Dashboard.jsx:
+Auf dem Dashboard ist auf der linken Seite sind Informationen über die Veranstaltungen wie Name der Veranstaltung, Dozent, Datum und Uhrzeit und Institut. Wenn man auf die Cards klickt, sollte die Veranstaltung geöffnet werden. Momentan wird man nur zu schon bestehenden Veranstaltung geleitet. Auf der rechten Seite sind aktuelle Informationen wie E-Mails, File Uploads oder Deadlines. 
 
 Aufbau Veranstaltung.jsx
 
