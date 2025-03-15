@@ -1,4 +1,4 @@
-import CourseCards from "./CourseCards";
+import CourseCards from "../CourseCards";
 
 const CourseList = ({ courseData }) => {
   return (
