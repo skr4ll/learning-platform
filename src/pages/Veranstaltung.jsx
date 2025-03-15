@@ -25,7 +25,7 @@ const Veranstaltung = () => {
 
   const assignmentArr = [];
   for (let i = 0; i < assignments.length; i++) {
-    assignmentArr.push(<Assignment {...assignments[i]} />);
+    assignmentArr.push(<Assignment {...assignments[i]}/>);
   }
 
   return (
@@ -59,7 +59,7 @@ const Veranstaltung = () => {
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Kalender</p>
-          <Calendar className="w-70 text-[2.5vh] text-center bg-indigo-50"/>
+          <Calendar className="w-70 text-[2.5vh] text-center bg-indigo-50 m-2"/>
         </div>
       </div>
       <Footer />

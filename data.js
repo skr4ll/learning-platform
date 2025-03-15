@@ -270,72 +270,58 @@ export const materials = [
 export const assignments =[
     {
         date: new Date('2024, 10, 15, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 10, 22, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 10, 29, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 11, 05, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 11, 12, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 11, 19, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 11, 26, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 12, 03, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 12, 10, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2024, 12, 17, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2025, 01, 07, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2025, 01, 14, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2025, 01, 21, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     },
     {
         date: new Date('2025, 01, 28, 23:55'),
-        text:"Erstelle eine Website!",
-
+        text:"Erstelle eine Website!"
     }
 ]
