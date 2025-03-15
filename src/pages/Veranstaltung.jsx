@@ -28,6 +28,10 @@ const Veranstaltung = () => {
     assignmentArr.push(<Assignment {...assignments[i]}/>);
   }
 
+  function showText(text) {
+    return text;
+  }
+
   return (
     <>
       <Header />
@@ -60,6 +64,7 @@ const Veranstaltung = () => {
         <div>
           <p className="text-center font-bold text-2xl">Kalender</p>
           <Calendar className="w-70 text-[2.5vh] text-center bg-indigo-50 m-2"/>
+          <p>Ausgewählte Aufgabe: {showText()}</p>
         </div>
       </div>
       <Footer />
