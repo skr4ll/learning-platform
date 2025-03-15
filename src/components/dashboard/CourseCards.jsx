@@ -5,7 +5,7 @@ const CourseCard = ({ course }) => {
 
   return (
     <button
-      onClick={() => navigate("S/veranstaltung")}
+      onClick={() => navigate("/veranstaltung")}
       className="w-full h-full flex flex-col items-center justify-center bg-uzk-dark text-white rounded-2xl p-6 text-center shadow-lg"
     >
       <div>
