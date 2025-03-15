@@ -73,10 +73,10 @@ const Veranstaltung = () => {
           <Calendar className="w-70 text-[17px] text-center bg-indigo-50" />
           <br />
           {/*Unter dem Kalender wird die Aufgabenstellung der ausgewählten Aufgabe angezeigt*/}
-          <p className="text-[17px] border-2 border-uzk-dark p-1 rounded-xl sticky top-50 w-70">
+          <div className="text-[17px] border-2 border-uzk-dark p-1 rounded-xl sticky top-50 w-70">
             <p className="text-[20px] text-center font-bold">Ausgewählte Aufgabe: <br /></p>
             <p>{selectedAssignment || "Keine Aufgabe ausgewählt"} <br /></p>
-          </p>
+          </div>
         </div>
       </div>
       <Footer />
