@@ -1,4 +1,3 @@
-import { SlCheck } from "react-icons/sl";
 import { useState } from "react";
 
 const Assignment = (props) => {
@@ -18,10 +17,9 @@ const Assignment = (props) => {
     }
 
     return (
-        <div className="text-center text-[17px] border-2 border-uzk-dark p-1 m-2 rounded-xl w-60 h-22.5 overflow-auto">
-            --&gt; {props.date.toLocaleString()} &nbsp;
-            {/*"Check"-Symbol ist rot, wenn die Abgabe noch aussteht und grün, wenn sie erfolgt ist*/}
-            <SlCheck className={`inline ${isDone ? "text-green-400" : "text-red-500"}`} /> <br />
+        //Der Rand ist blau, wenn die Abgabe noch aussteht und grün, wenn sie erfolgt ist
+        <div className={`text-center text-[17px] border-2 ${isDone? "border-green-400" : "border-uzk-dark"} p-1 m-2 rounded-xl w-60 h-22.5 overflow-auto`}>
+            --&gt; {props.date.toLocaleString()} &nbsp;<br />
 
             <button className="hover:underline" onClick={handleClick}>Aufgabenstellung</button> <br />
             <label className="hover:underline">{label}
