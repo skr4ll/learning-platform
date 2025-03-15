@@ -270,58 +270,58 @@ export const materials = [
 export const assignments =[
     {
         date: new Date('2024, 10, 15, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Guck dir die w3schools Tutorials zu HMTL an!"
     },
     {
         date: new Date('2024, 10, 22, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Guck dir die w3schools Tutorials zu CSS an und erstelle eine Website, die 'Hello World' anzeigt!"
     },
     {
         date: new Date('2024, 10, 29, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Guck dir die w3schools Tutorials zu JavaScript an und füge deiner Website von letzter Woche eine CSS-Datei hinzu!"
     },
     {
         date: new Date('2024, 11, 05, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Füge deiner Website aus den letzten Wochen eine JavaScript-Datei mit coolen Funktionen hinzu!"
     },
     {
         date: new Date('2024, 11, 12, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Verbessere deine Website und füge sie wie auf den Folien beschrieben zu einem lokalen Server hinzu!"
     },
     {
         date: new Date('2024, 11, 19, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Wähle von dieser Seite ein Template aus: https://www.w3schools.com/w3css/w3css_templates.asp. Erstelle dann in deiner Gruppe eine Website, auf der ihr das Template sowie euer bisheriges Wissen nutzt!"
     },
     {
         date: new Date('2024, 11, 26, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Bereitet in euerer Gruppe einen Kurzvortrag zu dem Framework vor, das ihr euch in der heutigen Stunde ausgesucht habt!"
     },
     {
         date: new Date('2024, 12, 03, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Erstellt in euerer Gruppe eine Zusammenfassung der wichtigsten Punkte, die es zu UX zu wissen gibt!"
     },
     {
         date: new Date('2024, 12, 10, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Vervollständige den Code aus der heutigen Sitzung!"
     },
     {
         date: new Date('2024, 12, 17, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Mache die Übungen, die sich in dem Code-Matierial von heute befinden!"
     },
     {
         date: new Date('2025, 01, 07, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Schaue dir das Video zu React an, das du in der Präsentation zu heute findest, und programmiere die erste halbe Stunde nach!"
     },
     {
         date: new Date('2025, 01, 14, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Vervollständige den Code aus der heutigen Sitzung!"
     },
     {
         date: new Date('2025, 01, 21, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Übe die Verwendung von props ein, indem du sie bei den components aus der heutigen Sitzung einbaust und so die data.js Datei überflüssig machst!"
     },
     {
         date: new Date('2025, 01, 28, 23:55'),
-        text:"Erstelle eine Website!"
+        text:"Lies noch einmal nach, was State ist und fasse in wenigen Sätzen zusammen, warum State für React so essenziell ist!"
     }
 ]

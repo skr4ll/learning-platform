@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CourseDate from "../components/course/CourseDate";
@@ -13,23 +14,24 @@ import { SlUser } from "react-icons/sl";
 import Calendar from 'react-calendar';
 
 const Veranstaltung = () => {
+  const [selectedAssignment, setSelectedAssignment] = useState("");
+
+  //Array mit einer Instanz für jeden Termin
   const dateArr = [];
   for (let i = 0; i < dates.length; i++) {
     dateArr.push(<CourseDate {...dates[i]} />);
   }
 
+  //Array mit einer Instanz für jede Sammlung an Matierial für den jeweiligen Termin
   const materialArr = [];
   for (let i = 0; i < materials.length; i++) {
     materialArr.push(<Material {...materials[i]} />);
   }
 
+  //Array mit einer Instanz für jede Abagabe und die dazugehörige Aufgabenstellung
   const assignmentArr = [];
   for (let i = 0; i < assignments.length; i++) {
-    assignmentArr.push(<Assignment {...assignments[i]}/>);
-  }
-
-  function showText(text) {
-    return text;
+    assignmentArr.push(<Assignment {...assignments[i]} onSelect={setSelectedAssignment} />);
   }
 
   return (
@@ -51,20 +53,28 @@ const Veranstaltung = () => {
       <div className="flex-container flex justify-evenly">
         <div className="mb-[14vh]">
           <p className="text-center font-bold text-2xl">Termine</p>
+          {/*Alle Termine der Veranstaltung werden untereinander angezeigt*/}
           {dateArr}
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Material</p>
+          {/*Alle Materialien werden neben dem entsprechenden Termin angezeigt*/}
           {materialArr}
         </div>
         <div>
           <p className="text-center font-bold text-2xl">Abgaben</p>
+          {/*Alle Abgaben werden in der gleichen Zeile wie der Termin, an dem sie aufgegeben werden, angezeigt*/}
           {assignmentArr}
         </div>
-        <div>
+        <div className="w-70 m-2">
           <p className="text-center font-bold text-2xl">Kalender</p>
-          <Calendar className="w-70 text-[2.5vh] text-center bg-indigo-50 m-2"/>
-          <p>Ausgewählte Aufgabe: {showText()}</p>
+          <Calendar className="w-70 text-[17px] text-center bg-indigo-50" />
+          <br />
+          {/*Unter dem Kalender wird die Aufgabenstellung der ausgewählten Aufgabe angezeigt*/}
+          <p className="border-2 border-uzk-dark p-1 m-2 rounded-xl sticky w-70">
+            <p className="text-[20px] text-center font-bold">Ausgewählte Aufgabe: <br /></p>
+            <p>{selectedAssignment || "Keine Aufgabe ausgewählt"} <br /></p>
+          </p>
         </div>
       </div>
       <Footer />
