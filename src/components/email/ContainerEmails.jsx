@@ -31,7 +31,7 @@ const ContainerEmails = ({folder_emails, all_folders, handleChange}) => {
                 curr_folders: all_folders,
             })
     }
-    
+
     const moveEmail = (mail, tf) => {
         setContext_menu(null);
         mail.folder_id = tf.id;
@@ -53,7 +53,7 @@ const ContainerEmails = ({folder_emails, all_folders, handleChange}) => {
         <>
         <div onClick={() => setContext_menu(null)} className="flex h-[30vh] w-[85w]">
             {/* Liste der Emails (POS: Mitte) */}
-            <div className="h-[73vh] overflow-auto ml-[0.5vw] w:-[25vw] lg:w-[25vw]">
+            <div className="h-[85vh] overflow-auto ml-[0.5vw] w:-[25vw] lg:w-[25vw]">
                 {folder_emails.map((email) => (
                     <div onClick={() => {handleClick(email)}} onContextMenu={(event) => handleContext(event, email)}  key={email.id}>
                         <Email {...email} />
@@ -62,7 +62,7 @@ const ContainerEmails = ({folder_emails, all_folders, handleChange}) => {
                 {folder_emails.length === 0 && <div className="text-red-600">Keine Mails vorhanden</div>}
             </div>
             {/* Leseansicht der gewählten Mail (POS: Rechts) */}
-            <div className="h-[73vh] w-[30vw] lg:w-[60vw]" >
+            <div className="h-[85vh] w-[30vw] lg:w-[60vw]" >
                 <MailView {...selected_mail} />
             </div>
         </div>
