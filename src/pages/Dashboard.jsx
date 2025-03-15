@@ -5,9 +5,14 @@ import { courseData } from "../../data";
 import NotificationList from "../components/dashboard/NotificationList"
 import { notifications } from "../../data";
 
+import { useNavigate } from 'react-router-dom';
+
+
 const Dashboard = () => {
+	const navigate = useNavigate();
   return (
     <>
+
       <Header />
       <div className="flex min-h-screen">
 
@@ -42,6 +47,7 @@ const Dashboard = () => {
       </div>
       <Footer />
     </>
+
   );
 };
 
