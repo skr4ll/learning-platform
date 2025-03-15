@@ -185,3 +185,157 @@ export const dates = [
         topic: "React: Hooks"
     }
 ]
+
+//Links für die Materialien
+export const materials = [
+    {
+        codeName: "Code01.zip",
+        code: "public\Material\Code01.zip",
+        ppName: "Sitzung01.pptx",
+        pp: "public\Material\Sitzung01.pptx"
+    },
+    {
+        codeName: "Code02.zip",
+        code: "public\Material\Code02.zip",
+        ppName: "Sitzung02.pptx",
+        pp: "public\Material\Sitzung02.pptx"
+    },
+    {
+        codeName: "Code03.zip",
+        code: "public\Material\Code03.zip",
+        ppName: "Sitzung03.pptx",
+        pp: "public\Material\Sitzung03.pptx"
+    },
+    {
+        codeName: "Code04.zip",
+        code: "public\Material\Code04.zip",
+        ppName: "Sitzung04.pptx",
+        pp: "public\Material\Sitzung04.pptx"
+    },
+    {
+        codeName: "Code05.zip",
+        code: "public\Material\Code05.zip",
+        ppName: "Sitzung05.pptx",
+        pp: "public\Material\Sitzung05.pptx"
+    },
+    {
+        codeName: "Code06.zip",
+        code: "public\Material\Code06.zip",
+        ppName: "Sitzung06.pptx",
+        pp: "public\Material\Sitzung06.pptx"
+    },
+    {
+        codeName: "Code07.zip",
+        code: "public\Material\Code07.zip",
+        ppName: "Sitzung07.pptx",
+        pp: "public\Material\Sitzung07.pptx"
+    },
+    {
+        codeName: "Code08.zip",
+        code: "public\Material\Code08.zip",
+        ppName: "Sitzung08.pptx",
+        pp: "public\Material\Sitzung08.pptx"
+    },
+    {
+        codeName: "Code09.zip",
+        code: "public\Material\Code09.zip",
+        ppName: "Sitzung09.pptx",
+        pp: "public\Material\Sitzung09.pptx"
+    },
+    {
+        codeName: "Code10.zip",
+        code: "public\Material\Code10.zip",
+        ppName: "Sitzung10.pptx",
+        pp: "public\Material\Sitzung10.pptx"
+    },
+    {
+        codeName: "Code11.zip",
+        code: "public\Material\Code11.zip",
+        ppName: "Sitzung11.pptx",
+        pp: "public\Material\Sitzung11.pptx"
+    },
+    {
+        codeName: "Code12.zip",
+        code: "public\Material\Code12.zip",
+        ppName: "Sitzung12.pptx",
+        pp: "public\Material\Sitzung12.pptx"
+    },
+    {
+        codeName: "Code13.zip",
+        code: "public\Material\Code13.zip",
+        ppName: "Sitzung13.pptx",
+        pp: "public\Material\Sitzung13.pptx"
+    },
+    {
+        codeName: "Code14.zip",
+        code: "public\Material\Code14.zip",
+        ppName: "Sitzung14.pptx",
+        pp: "public\Material\Sitzung14.pptx"
+    },
+    {
+        codeName: "Code15.zip",
+        code: "public\Material\Code15.zip",
+        ppName: "Sitzung15.pptx",
+        pp: "public\Material\Sitzung15.pptx"
+    }
+]
+
+// Daten für Abgaben
+export const assignments =[
+    {
+        date: new Date('2024, 10, 15, 23:55'),
+        text:"Guck dir die w3schools Tutorials zu HMTL an!"
+    },
+    {
+        date: new Date('2024, 10, 22, 23:55'),
+        text:"Guck dir die w3schools Tutorials zu CSS an und erstelle eine Website, die 'Hello World' anzeigt!"
+    },
+    {
+        date: new Date('2024, 10, 29, 23:55'),
+        text:"Guck dir die w3schools Tutorials zu JavaScript an und füge deiner Website von letzter Woche eine CSS-Datei hinzu!"
+    },
+    {
+        date: new Date('2024, 11, 05, 23:55'),
+        text:"Füge deiner Website aus den letzten Wochen eine JavaScript-Datei mit coolen Funktionen hinzu!"
+    },
+    {
+        date: new Date('2024, 11, 12, 23:55'),
+        text:"Verbessere deine Website und füge sie wie auf den Folien beschrieben zu einem lokalen Server hinzu!"
+    },
+    {
+        date: new Date('2024, 11, 19, 23:55'),
+        text:"Wähle von dieser Seite ein Template aus: https://www.w3schools.com/w3css/w3css_templates.asp. Erstelle dann in deiner Gruppe eine Website, auf der ihr das Template sowie euer bisheriges Wissen nutzt!"
+    },
+    {
+        date: new Date('2024, 11, 26, 23:55'),
+        text:"Bereitet in euerer Gruppe einen Kurzvortrag zu dem Framework vor, das ihr euch in der heutigen Stunde ausgesucht habt!"
+    },
+    {
+        date: new Date('2024, 12, 03, 23:55'),
+        text:"Erstellt in euerer Gruppe eine Zusammenfassung der wichtigsten Punkte, die es zu UX zu wissen gibt!"
+    },
+    {
+        date: new Date('2024, 12, 10, 23:55'),
+        text:"Vervollständige den Code aus der heutigen Sitzung!"
+    },
+    {
+        date: new Date('2024, 12, 17, 23:55'),
+        text:"Mache die Übungen, die sich in dem Code-Matierial von heute befinden!"
+    },
+    {
+        date: new Date('2025, 01, 07, 23:55'),
+        text:"Schaue dir das Video zu React an, das du in der Präsentation zu heute findest, und programmiere die erste halbe Stunde nach!"
+    },
+    {
+        date: new Date('2025, 01, 14, 23:55'),
+        text:"Vervollständige den Code aus der heutigen Sitzung!"
+    },
+    {
+        date: new Date('2025, 01, 21, 23:55'),
+        text:"Übe die Verwendung von props ein, indem du sie bei den components aus der heutigen Sitzung einbaust und so die data.js Datei überflüssig machst!"
+    },
+    {
+        date: new Date('2025, 01, 28, 23:55'),
+        text:"Lies noch einmal nach, was State ist und fasse in wenigen Sätzen zusammen, warum State für React so essenziell ist!"
+    }
+]
