@@ -1,5 +1,5 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import CourseDate from "../components/course/CourseDate";
 import Material from "../components/course/Material";
 import Assignment from "../components/course/Assignment";
