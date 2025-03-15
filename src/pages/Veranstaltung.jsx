@@ -7,10 +7,6 @@ import Assignment from "../components/course/Assignment";
 import { dates } from "../../data";
 import { materials } from "../../data";
 import { assignments } from "../../data";
-import { SlCalender } from "react-icons/sl";
-import { SlClock } from "react-icons/sl";
-import { SlLocationPin } from "react-icons/sl";
-import { SlUser } from "react-icons/sl";
 import Calendar from 'react-calendar';
 
 const Veranstaltung = () => {
@@ -43,8 +39,7 @@ const Veranstaltung = () => {
         Basissysteme der Informationsverabeitung 1
       </span></h1>
       <p className="text-xl text-center m-2">
-        <SlCalender className="inline" /> Mittwoch | <SlClock className="inline" /> 10:00 Uhr |
-        <SlLocationPin className="inline" /> S93 (Philosophikum) | <SlUser className="inline" /> Susanne Kurz
+        Mittwoch | 10:00 Uhr | S93 (Philosophikum) | Susanne Kurz M.A.
       </p>
       <p className="ml-2 mr-2">In diesem Kurs werden die Grundlagen von HTML, CSS und JavaScript
         behandlet, um anschließend mit React arbeiten zu können.
