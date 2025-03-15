@@ -136,7 +136,7 @@ const ContainerFolders = () => {
         <>
         <div className="flex" onClick={() => setContext_menu(null)}>
             {/* Die Ordnerstruktur (POS: Links) */}
-            <div className="h-[73vh] bg-uzk-light rounded-xl pt-[1vh] overflow-auto w-[18vw] lg:w-[30vw]"> 
+            <div className="h-[85vh] bg-uzk-light rounded-xl pt-[1vh] overflow-auto w-[18vw] lg:w-[30vw]"> 
                     {mapFolders()}
                     <div className="h-full w-full" onContextMenu={(event) => handleContext(event, folders[0])}></div>
             </div>
