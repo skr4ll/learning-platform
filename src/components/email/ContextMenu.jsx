@@ -2,82 +2,97 @@ import { useState } from "react";
 
 const ContextMenu = (props) => {
     let add_name = "";
+    let add_fid = props.called_by.id;
+    
+    // Submit neuen Ordner
     const handleSubmit = (e) => {
         e.preventDefault(); 
         const formData = new FormData(e.target);
         add_name = formData.get("folder_name");
+        console.log(add_fid);
         if(add_name){
-            props.onAdd(add_name);
+            props.onAdd(add_name, add_fid);
         } 
-        props.handleClick();
       };
 
-    // Je nach type (Folder/Email) wird das ContexMenu gefüllt
-    
-    // Bereich Ordner
     const [show_add_field, setShow_add_field] = useState(false);
-    if (props.type === "folder"){        
-        // Ist called_by.id == 2 dann handelt es sich um den Papierkorb
-        console.log(props.called_by.id);
-        if (props.called_by.id === 2){
-            return (
-                <>
-                {props?.visible && (
-                    <div 
-                        className="absolute bg-gray-800 text-white shadow-lg rounded p-1 z-50"
-                        style={{ top: props.y, left: props.x }}
-                    >
-                    <button className="hover:bg-green-800 border-1 rounded p-1">
-                        🗑 Papierkorb leeren
-                    </button>
-                    </div>
-                )}
-                </>
-            );
-        }
-        else{
-            return (
-                <>
-                {props?.visible && (
-                <div 
-                    className="absolute bg-gray-800 text-white shadow-lg rounded p-1"
-                    style={{ top: props.y, left: props.x }}
-                >
-                    <div onClick={() => {setShow_add_field(true)}}>
-                        {props.called_by.id === -1 && (<div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]">
-                                                        ➕ Neuer Ordner</div>)}
-                        {props.called_by.id > 2 && props.called_by.parent_id === -1 &&
-                        (<div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]">
-                                                        ➕ Neuer UnterOrdner</div>)}
-                    </div>
-                    <div onClick={() => {setShow_add_field(true)}}>
-                        {props.called_by.id > 2 && !show_add_field && (<div className="hover:bg-green-800 border-3 rounded p-1">
-                                                        ❌ Ordner löschen</div>)}
-                    </div>
-                        <div className="mt-[1.5vh]">
-                            {show_add_field && 
-                            <form  onSubmit={handleSubmit}  >
-                                <label> ✎ Ordnername:</label>
-                                <input className="border-1 rounded h-[3vh] ml-[0.5vw]" 
-                                    type="text" name="folder_name"></input>
-                                <button className="rounded hover:bg-white text-4xl"
-                                type="submit"
-                                >
-                                ✅
-                                </button> 
-                            </form>     
-                            }
-                        </div>
-                    </div>
-                )}
-            </>
-            );
-        }
-    }  
-    // Bereich Emails
-    else{
-        alert("EMAIL");
+    const [show_folders, setShow_folders] = useState(false);
+    const mapCurrFolders = () => {
+        return (
+            <ul>
+                {props.curr_folders.filter(f => f.id !== 2 && f.id !== 1).map((f) => (
+                    <li className="p-1 bg-uzk-light hover:bg-green-500 cursor-pointer" onClick={ () => props.onMove(props.called_by, f)}>{f.folder_name}</li>
+                ))}
+            </ul>
+        );
     }
+    
+    return (
+        <div 
+            className="absolute bg-gray-800 text-white shadow-lg rounded p-1"
+            style={{ top: props.y, left: props.x }}
+        >
+            {/* Ordner Kontextmenü */}
+            {props.type === "folder" && (
+                <>
+                    {props.called_by.id === -1 && (
+                        <div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]" 
+                             onClick={() => setShow_add_field(true)}>
+                            ➕ Neuer Ordner
+                        </div>
+                    )}
+                    {props.called_by.id === 2 && !show_add_field && (
+                        <div className="hover:bg-red-800 border-3 rounded p-1" 
+                             onClick={() => props.onDelete(props.called_by)}>
+                            🗑 Papierkorb leeren
+                        </div>
+                    )}
+                    {props.called_by.id > 2 && props.called_by.parent_id === -1 && (
+                        <div className="hover:bg-green-800 border-3 rounded p-1 mb-[0.5vh]" 
+                             onClick={() => setShow_add_field(true)}>
+                            ➕ Neuer UnterOrdner
+                        </div>
+                    )}
+                    {props.called_by.id > 2 && !show_add_field && (
+                        <div className="hover:bg-red-800 border-3 rounded p-1" 
+                             onClick={() => props.onDelete(props.called_by)}>
+                            ❌ Ordner löschen
+                        </div>
+                    )}
+
+                    {show_add_field && (
+                        <form onSubmit={handleSubmit}>
+                            <label> ✎ Ordnername:</label>
+                            <input className="border-1 rounded h-[3vh] ml-[0.5vw]" 
+                                type="text" name="folder_name" />
+                            <button className="rounded hover:bg-white text-4xl" type="submit">
+                                ✅
+                            </button> 
+                        </form>
+                    )}
+                </>
+            )}
+
+            {/* Email Kontextmenü */}
+            {props.type === "email" && (
+                <>
+                    <div className="hover:bg-blue-800 border-3 rounded p-1 mb-[0.5vh]" 
+                         onClick={() => props.onReply(props.called_by)}>
+                        ✉️ Antworten
+                    </div>
+                    <div className="flex hover:bg-yellow-800 border-3 rounded p-1 mb-[0.5vh]" 
+                         onClick={() => setShow_folders(true)}>
+                        📂 Verschieben nach:
+                        {show_folders && (<div className=" ml-3 flex">{mapCurrFolders()}</div>)}
+                    </div>
+                    <div className="hover:bg-red-800 border-3 rounded p-1" 
+                         onClick={() => props.onMove(props.called_by, props.curr_folders[2])}>
+                        🗑 Löschen
+                    </div>
+                </>
+            )}
+        </div>
+    );
 };
 
 export default ContextMenu;

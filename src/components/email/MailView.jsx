@@ -21,7 +21,7 @@ import { transformDate} from "../../../util";
           </div>
           
           {/* Nachrichten-Body */}
-          <div className="bg-uzk-dark h-[60vh] m-5 p-3 rounded-xl text-s sm:text-[0.5vh] lg:text-lg text-white overflow-scroll">
+          <div className="bg-uzk-dark h-[60vh] m-5 p-3 rounded-xl text-s sm:text-[0.5vh] lg:text-lg text-white overflow-scroll whitespace-pre-line">
             {selected_mail.message}
           </div>
         </div>  
