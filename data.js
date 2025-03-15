@@ -79,11 +79,11 @@ const messages = [
     tristique tempus. Curabitur rhoncus gravida libero, quis aliquam erat facilisis at. Etiam tincidunt lorem vitae rhoncus semper.`
   ];
 
-  export const emails = Array.from({ length: 50 }, (_, i) => ({
+  export const emails = Array.from({ length: 5 }, (_, i) => ({
     id: i,
     from: `test${i}@example.com`,
     to:"user@learning-platform.de",
-    folder_id: Math.floor(Math.random() * 3), // 0: Posteingang, 1: Gesendet, 2: Papierkorb
+    folder_id: 0, // 0: Posteingang, 1: Gesendet, 2: Papierkorb
     datetime: new Date(
         2025, 
         Math.floor(Math.random() * 12), 
@@ -106,6 +106,20 @@ export class Folder {
       this.folder_name = folder_name;
       this.clicked = false;
   }
+}
+// Konstruktor für Email Objekte
+export class Email {
+    static next_id = emails.length;
+    constructor(id, from, to, folder_id, datetime, subject, message, clicked = false) {
+        this.id = Email.next_id++;
+        this.from = from;
+        this.to = to;
+        this.folder_id = folder_id;
+        this.datetime = datetime;
+        this.subject = subject;
+        this.message = message;
+        this.clicked = clicked;
+    }
 }
 
 //Termine der Veranstaltung
