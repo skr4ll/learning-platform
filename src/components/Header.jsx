@@ -42,13 +42,6 @@ const Header = () => {
         </button>
         </div>
       </div>
-    
-        {/* Link Buttons */}
-      <div className="flex flex-wrap gap-4">
-        
-        
-        
-      </div>
     </header>
   );
 };
