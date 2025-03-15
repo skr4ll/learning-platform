@@ -31,7 +31,9 @@ const Veranstaltung = () => {
   //Array mit einer Instanz für jede Abagabe und die dazugehörige Aufgabenstellung
   const assignmentArr = [];
   for (let i = 0; i < assignments.length; i++) {
-    assignmentArr.push(<Assignment {...assignments[i]} onSelect={setSelectedAssignment} />);
+    /*Eine Instant von Assignment wird mit den nötigen Daten und
+    der Funktion select, die durch den Aufruf von setSelectedAssignment die Aufgabenstellung setzt, dem Array hinzugefügt */
+    assignmentArr.push(<Assignment {...assignments[i]} select={setSelectedAssignment} />);
   }
 
   return (

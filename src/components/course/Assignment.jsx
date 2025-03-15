@@ -13,7 +13,8 @@ const Assignment = (props) => {
     }
 
     const handleClick = () => {
-        props.onSelect(props.text);
+        //Die Aufgabenstellung wird der Funktion select aus den props für Assignment übergeben
+        props.select(props.text);
     }
 
     return (
