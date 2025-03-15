@@ -1,8 +1,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CourseList from "../components/dashboard/CourseList";
+import CourseList from "../components/dashboard/CourseList"
 import { courseData } from "../../data";
-import NotificationList from "../components/dashboard/NotificationList";
+import NotificationList from "../components/dashboard/NotificationList"
 import { notifications } from "../../data";
 
 const Dashboard = () => {
