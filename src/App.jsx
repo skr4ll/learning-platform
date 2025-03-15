@@ -4,7 +4,6 @@ import Dashboard from './pages/Dashboard';
 import FAQ from './pages/FAQ';
 import Veranstaltung from './pages/Veranstaltung';
 import Postfach from './pages/Postfach';
-import Fakultaeten from './pages/Fakultaeten';
 
 const App = () => {
   return (
@@ -15,7 +14,6 @@ const App = () => {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/veranstaltung" element={<Veranstaltung />} />
         <Route path="/postfach" element={<Postfach />} />
-        <Route path="/fakultaeten" element= {<Fakultaeten />} />
       </Routes>
     </Router>
   );

@@ -9,18 +9,18 @@ const Header = () => {
         
         {/* Buttons links */}
         <div className="flex items-center">
-          <button
-            className="cursor-pointer flex justify-center items-center"
-            onClick={() => navigate("/faq")}
-          >
-            <img className="h-12 w-12 sm:h-15 sm:w-15" src="/faq_button.png" alt="FAQ" />
-          </button>
-          <button
-            className="cursor-pointer flex justify-center items-center"
-            onClick={() => navigate("/fakultaeten")}
-          >
-            <img className="h-12 w-12 sm:h-15 sm:w-15" src="/lang_button.png" alt="Fakultäten" />
-          </button>
+        <button
+          className=" w-35 cursor-pointer p-2 m-2 btn btn-blue rounded-xl border-3 border-white text-center"
+          onClick={() => navigate("/faq")}
+        >
+          FAQ
+        </button>
+        <button
+          className=" w-35 cursor-pointer p-2 m-2 btn btn-blue rounded-xl border-3 border-white text-center"
+          onClick={() => navigate("/dashboard")}
+        >
+          Home
+        </button>
         </div>
 
         {/* Text */}
@@ -28,41 +28,26 @@ const Header = () => {
         
         {/* Buttons rechts */}
         <div className="flex items-center">
-          <button
-            className="cursor-pointer flex justify-center items-center"
-            onClick={() => navigate("/postfach")}
-          >
-            <img className="h-12 w-12 sm:h-15 sm:w-15" src="/mail_button.png" alt="Postfach" />
-          </button>
-          <button
-            className="cursor-pointer flex justify-center items-center"
-            onClick={() => navigate("/")}
-          >
-            <img className="h-12 w-12 sm:h-15 sm:w-15" src="../logout_button.png" alt="Logout" />
-          </button>
+        <button
+          className="w-35 cursor-pointer p-2 m-2 btn btn-blue rounded-xl border-3 border-white text-center"
+          onClick={() => navigate("/postfach")}
+        >
+          Postfach
+        </button>
+        <button
+          className=" w-35 cursor-pointer p-2 m-2 btn btn-blue rounded-xl border-3 border-white text-center"
+          onClick={() => navigate("/")}
+        >
+          Logout
+        </button>
         </div>
       </div>
     
         {/* Link Buttons */}
       <div className="flex flex-wrap gap-4">
-        <button
-          className="w-35 cursor-pointer pr-2 btn btn-blue rounded-xl border-3 border-white text-center"
-          onClick={() => navigate("/fakultaeten")}
-        >
-          Fakultäten
-        </button>
-        <button
-          className="w-35 cursor-pointer p-2 btn btn-blue rounded-xl border-3 border-white text-center"
-          onClick={() => navigate("/veranstaltung")}
-        >
-          Veranstaltungen
-        </button>
-        <button
-          className=" w-35 cursor-pointer p-2 btn btn-blue rounded-xl border-3 border-white text-center"
-          onClick={() => navigate("/dashboard")}
-        >
-          Home
-        </button>
+        
+        
+        
       </div>
     </header>
   );
