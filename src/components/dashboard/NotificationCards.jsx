@@ -5,7 +5,6 @@ const NotificationCard = ({ notification, deleteNotification }) => {
 
   const link = notification.type === "E-Mail" ? "/postfach" : "/veranstaltung";
 
- 
   const datefont = notification.type === "Deadline" ? "text-red-700 font-bold" : "text-gray-400 text-sm";
 
   let imageSrc = '';

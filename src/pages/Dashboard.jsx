@@ -29,7 +29,7 @@ const Dashboard = () => {
         <div className="w-1/2 p-6 border-l-2 border-uzk-dark">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-center">Aktuelle Informationen</h1>
-			<img 
+          <img 
               src="/filterbutton.webp" 
               alt="Filter" 
               className="cursor-pointer ml-4 w-[10%] h-[10%]" 

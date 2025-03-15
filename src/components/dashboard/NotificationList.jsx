@@ -1,4 +1,4 @@
-import NotificationCard from "./NotificationCards"
+import NotificationCard from "../NotificationCards"
 
 const NotificationList = ({ notifications }) => {
     return (
