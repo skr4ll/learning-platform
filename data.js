@@ -186,6 +186,74 @@ export const dates = [
     }
 ]
 
+export const courseData= [
+
+    {
+        name: "BSI", 
+        weekday:"Wednesday",
+        time:"10:00",
+        lecturer:"Susanne Kurz",
+        institut: "IDH",
+        link:"/Veranstaltung"
+    },
+    {
+        name: "Computer Linguistik", 
+        weekday:"Monday",
+        time:"10:00",
+        lecturer:"Nils Reiter",
+        institut:"IDH",
+        link:"/Veranstaltung"
+    },
+    {
+        name: "Deep Learning", 
+        weekday:"Thursday",
+        time:"08:00",
+        lecturer:"Janis Pagel",
+        institut:"IDH",
+        link:"/Veranstaltung"
+    },
+    {
+        name: "Statistik", 
+        weekday:"Tuesday",
+        time:"12:00",
+        lecturer:"Jürgen Hermes",
+        institut:"IDH",
+        link:"/Veranstaltung"
+    },
+    {
+        name: "Algorithmen und Logik I", 
+        weekday:"Tuesday",
+        time:"14:00",
+        lecturer:"Susanne Kurz",
+        institut:"IDH",
+        link:"/Veranstaltung"
+    },
+]
+export const notifications= [
+    
+    {
+        type: "E-Mail",
+        name:"Subjectline", 
+        Sender:"E-Mail-Sender", 
+        date:"12.03.2025",
+        id:"0000001"
+    }, 
+    {
+        type: "Data Upload",
+        name:"New React File", 
+        Sender:"BSI", 
+        date:"12.03.2025",
+         id:"0000002"
+    }, 
+    {
+        type: "Deadline",
+        name:"React Gruppenprojekt", 
+        Sender:"BSI", 
+        date:"15.03.2025",
+        id:"0000003"
+    }
+]
+
 //Links für die Materialien
 export const materials = [
     {
@@ -339,3 +407,4 @@ export const assignments =[
         text:"Lies noch einmal nach, was State ist und fasse in wenigen Sätzen zusammen, warum State für React so essenziell ist!"
     }
 ]
+

@@ -6,6 +6,11 @@ Dashboard: Linea
 Veranstaltung: Marilis
 FAQ: Khanh
 Postfach: Philipp
+
+
+Dashboard:
+Auf dem Dashboard ist auf der linken Seite sind Informationen über die Veranstaltungen wie Name der Veranstaltung, Dozent, Datum und Uhrzeit und Institut. Wenn man auf die Cards klickt, sollte die Veranstaltung geöffnet werden. Momentan wird man nur zu schon bestehenden Veranstaltung geleitet. Auf der rechten Seite sind aktuelle Informationen wie E-Mails, File Uploads oder Deadlines. 
+
 Header and Footer: Alle
 
 Unsere Website ist eine Lernplattform, die sich an ILIAS orientiert. Zur Navigation zwischen den einzelnen Seiten wird react-router-dom verwendet. Die Routen wurden in App.jsx konfiguriert.
@@ -31,3 +36,4 @@ Diese beinhaltet die Mailliste des aktuell ausgewählten Ordners und rechts davo
 Bei Rechtsklick auf eine Email wird ebenfalls ein Kontextmenü geöffnet. Dieses bietet die Optionen die Email zu beantworten, in einen anderen Ordner zu verschieben oder zu löschen.
 Bei Klick auf "antworten" wird ein Modal (ReplyModal) geöffnet und eine Antwort kann geschrieben werden. Hierbei wird die alte Mail unterhalb der neuen Nachricht angefügt und ein neues Emailobjekt an das emails Array angehängt. 
 Diese Mail wird dem Ordner "Gesendet" zugewiesen. Bei Klick auf "Verschieben nach: " öffnet sich rechts neben dem Eintrag eine Liste mit allen Ordnern, in die verschoben werden kann (Posteingang und die selbstangelegten Ordner).
+
