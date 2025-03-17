@@ -2,26 +2,24 @@ import { useState } from "react";
 
 const ContextMenu = (props) => {
     let add_name = "";
-    let add_fid = props.called_by.id;
+    const [show_add_field, setShow_add_field] = useState(false);
+    const [show_folders, setShow_folders] = useState(false);
     
     // Submit neuen Ordner
     const handleSubmit = (e) => {
         e.preventDefault(); 
         const formData = new FormData(e.target);
         add_name = formData.get("folder_name");
-        console.log(add_fid);
         if(add_name){
-            props.onAdd(add_name, add_fid);
+            props.onAdd(add_name);
         } 
       };
 
-    const [show_add_field, setShow_add_field] = useState(false);
-    const [show_folders, setShow_folders] = useState(false);
     const mapCurrFolders = () => {
         return (
             <ul>
                 {props.curr_folders.filter(f => f.id !== 2 && f.id !== 1).map((f) => (
-                    <li className="p-1 bg-uzk-light hover:bg-green-500 cursor-pointer" onClick={ () => props.onMove(props.called_by, f)}>{f.folder_name}</li>
+                    <li className="p-1 bg-uzk-light hover:bg-green-500 cursor-pointer" key={f.id} onClick={ () => props.onMove(props.called_by, f)}>{f.folder_name}</li>
                 ))}
             </ul>
         );

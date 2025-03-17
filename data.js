@@ -79,7 +79,7 @@ const messages = [
     tristique tempus. Curabitur rhoncus gravida libero, quis aliquam erat facilisis at. Etiam tincidunt lorem vitae rhoncus semper.`
   ];
 
-  export const emails = Array.from({ length: 5 }, (_, i) => ({
+  export const emails = Array.from({ length: 15 }, (_, i) => ({
     id: i,
     from: `test${i}@example.com`,
     to:"user@learning-platform.de",
@@ -105,6 +105,7 @@ export class Folder {
       this.parent_id = parent_id;
       this.folder_name = folder_name;
       this.clicked = false;
+      this.expanded = false;
   }
 }
 // Konstruktor für Email Objekte

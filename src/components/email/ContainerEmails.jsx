@@ -56,7 +56,7 @@ const ContainerEmails = ({folder_emails, all_folders, handleChange}) => {
             <div className="h-[85vh] overflow-auto ml-[0.5vw] w:-[25vw] lg:w-[25vw]">
                 {folder_emails.map((email) => (
                     <div onClick={() => {handleClick(email)}} onContextMenu={(event) => handleContext(event, email)}  key={email.id}>
-                        <Email {...email} />
+                        <Email {...email}/>
                     </div>
                 ))}
                 {folder_emails.length === 0 && <div className="text-red-600">Keine Mails vorhanden</div>}
