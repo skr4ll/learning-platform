@@ -5,47 +5,62 @@ import ContextMenu from "./ContextMenu";
 import { useEffect } from "react";
 
 const ContainerFolders = () => {
+    
     const [folders, setFolders] = useState([
-        { id: -1, parent_id: null, folder_name: "root", clicked: false },
-        { id: 0, parent_id: -1, folder_name: "Posteingang", clicked: false },
-        { id: 1, parent_id: -1, folder_name: "Gesendet", clicked: false },
-        { id: 2, parent_id: -1, folder_name: "Papierkorb", clicked: false },
+        { id: -1, parent_id: null, folder_name: "root", clicked: false, expanded: false },
+        { id: 0, parent_id: -1, folder_name: "Posteingang", clicked: false, expanded: false },
+        { id: 1, parent_id: -1, folder_name: "Gesendet", clicked: false, expanded: false },
+        { id: 2, parent_id: -1, folder_name: "Papierkorb", clicked: false, expanded: false },
     ]);
+
+    const folders_without_root = folders.filter(f => f.id !== -1);
     const [all_emails, setAll_emails] = useState(emails);
     const [curr_folder, setCurr_folder] = useState(folders[1]);
     const [context_menu, setContext_menu] = useState(null);
     const [folder_emails, setFolder_emails] = useState([]);
+    const [is_open, setIs_open] = useState(true);
+    let context_caller = {};
 
     useEffect(() => {
         setFolder_emails(all_emails.filter(email => email.folder_id === curr_folder.id).sort((a, b) => b.datetime - a.datetime));
     }, [curr_folder, all_emails]);
-
-    // const folder_emails = emails.filter(email => email.folder_id === curr_folder.id).sort((a, b) => b.datetime - a.datetime);
-    const folders_without_root = folders.filter(f => f.id !== -1);
+    
     const handleChange = () => {
         setFolder_emails(emails.filter(email => email.folder_id === curr_folder.id).sort((a, b) => b.datetime - a.datetime));
     };
-
+    
     curr_folder.clicked = true;
     
     const selectFolder = (folder) => {
         curr_folder.clicked = false;
         setCurr_folder(folder);
-        folder_emails.forEach(e => e.clicked = false);
         setFolder_emails(emails.filter(email => email.folder_id === curr_folder.id).sort((a, b) => b.datetime - a.datetime));
+    }
+
+    const handleAccordionExpand = (pfolder, cf) => {
+        pfolder.expanded = true;
+        setIs_open(!is_open);
+        selectFolder(cf);
+    }
+    
+    const handleAccordionCollapse = (pfolder) => {
+        pfolder.expanded = false;
+        setIs_open(!is_open);
+        selectFolder(pfolder);
     }
 
     const getButtonClass = (folder) => {
         if (folder.clicked) {
             return "flex cursor-pointer bg-white text-[3vw] ml-[0.5vw] p-[0.5vh] border-1 rounded lg:text-xl";
         } else {
-            return "flex cursor-pointer hover:text-blue-50 text-[3vw] ml-[0.5vw] lg:text-base";
+            return "flex cursor-pointer hover:text-blue-50 text-[3vw] ml-[0.5vw] p-[0.5vh] lg:text-base";
         }
     };
     
     // Kontextmenü handler Funkktionen
     const handleContext = (event, calling_folder) => {
         event.preventDefault();
+        context_caller = calling_folder;
         if (calling_folder.id > 1 || calling_folder.id === -1){
             setContext_menu({
                 visible: true,
@@ -53,29 +68,30 @@ const ContainerFolders = () => {
                 y: event.pageY,
                 type: "folder",
                 called_by: calling_folder, 
-                onDelete: (to_delete_folder) => deleteFolder(to_delete_folder),
-                onAdd: (to_add_folder_name, calling_id) => addFolder(to_add_folder_name, calling_id),
+                onDelete: () => deleteFolder(),
+                onAdd: (to_add_folder_name) => addFolder(to_add_folder_name),
             })
         }
     }
     
-    const addFolder = (to_add_folder_name, pfid) => {
-        const folder_to_add = new Folder(pfid, to_add_folder_name);
+    const addFolder = (to_add_folder_name) => {
+        setContext_menu(null);
+        const folder_to_add = new Folder(context_caller.id, to_add_folder_name);
         setFolders([...folders, folder_to_add]);
         selectFolder(folder_to_add);
-        setContext_menu(null);
+
     }  
 
-    const deleteFolder = (to_delete_folder) => {
+    const deleteFolder = () => {
         // Case: Papierkorb (Hier wird nicht der Ordner gelöscht, sondern nur der Papierkorb geleert)
         // Dies ist die einzige Aktion bei der Mails wirklich gelöscht werden, sonst wird nur deren Ordner ID auf 2 gesetzt.
-        if (to_delete_folder.id === 2) {
-            setAll_emails(prevEmails => prevEmails.filter(email => email.folder_id !== 2));
+        if (context_caller.id === 2) {
+            setAll_emails(prev => prev.filter(email => email.folder_id !== 2));
         }
         // Case: Parent ist root (Alle mails werden in Posteingang (PE) verschoben und alle child Ordner gelöscht (Mails auch in PE))
-        else if (to_delete_folder.parent_id === -1){
-            let child_folders = folders.filter(f => f.parent_id === to_delete_folder.id);
-            let fids_to_check = [to_delete_folder.id, ...child_folders.map(cf => cf.id)];
+        else if (context_caller.parent_id === -1){
+            let child_folders = folders.filter(f => f.parent_id === context_caller.id);
+            let fids_to_check = [context_caller.id, ...child_folders.map(cf => cf.id)];
             emails.forEach (e => {
                 if (fids_to_check.includes(e.folder_id)){
                     e.folder_id = 0;
@@ -86,11 +102,11 @@ const ContainerFolders = () => {
         // Case: Else = Der Ordner ist ein Unterordner (Alle mails werden in Parentordner verschoben)
         else {
             emails.forEach (e => {
-                if (e.folder_id === to_delete_folder.id){
-                    e.folder_id = to_delete_folder.parent_id;
+                if (e.folder_id === context_caller.id){
+                    e.folder_id = context_caller.parent_id;
                 }
             });
-            setFolders(folders.filter(f => f.id !== to_delete_folder.id));
+            setFolders(folders.filter(f => f.id !== context_caller.id));
         }
         setContext_menu(null);    
     };
@@ -99,36 +115,54 @@ const ContainerFolders = () => {
     const mapFolders = () => { 
         return folders_without_root.map((folder) => {
             let child_folders = folders_without_root.filter(cf => folder.id === cf.parent_id);
-            if (child_folders.length === 0) {    
+            
+            // Der Ornder ist Child von root und HAT KEINE Children
+            if (child_folders.length === 0 && folder.parent_id === -1) {    
                 return (
                     <button onClick={() => selectFolder(folder)} key={folder.id} 
                             onContextMenu={(event) => handleContext(event, folder)} className={getButtonClass(folder)}
-                    >
-                        {folder.parent_id === -1 && folder.folder_name}
+                    > 
+                       {folder.id === 0 && "✉" + folder.folder_name}
+                       {folder.id === 1 && "✈" + folder.folder_name}
+                       {folder.id === 2 && "🗑" + folder.folder_name}
+                       {folder.id > 2 && "⮞" + folder.folder_name}
                     </button>
                 );
             } 
-            else if (child_folders.length > 0 && folder.parent_id === -1) {
+            
+            // Der Ordner ist Child von root und HAT Children
+            if (child_folders.length > 0 && folder.parent_id === -1) {
                 return (
                     <div key={folder.id}>
-                        <button onClick={() => selectFolder(folder)} onContextMenu={(event) => handleContext(event, folder)} 
+                        <div className="flex">
+                            <button 
+                                onClick={() => selectFolder(folder)} 
+                                onContextMenu={(event) => handleContext(event, folder)}
                                 className={getButtonClass(folder)}
-                        >
-                            {folder.folder_name} 
-                        </button>
-                        <div className="ml-4">
-                            {child_folders.map((child) =>(
-                                <button key={child.id} onClick={() => selectFolder(child)} 
-                                        onContextMenu={(event) => handleContext(event, child)} className={getButtonClass(child)}
-                                >
-                                    └ {child.folder_name}
-                                </button>                                     
-                            ))}
-                        </div>     
+                            >
+                                ➤ {folder.folder_name}
+                            </button>
+                            {folder.expanded ? <div className="m-1 text-[3vh] text-orange-400 hover:text-gray-500" onClick={() => handleAccordionCollapse(folder)}>⮝</div> : 
+                                        <div className="ml-1 text-[3vh] text-orange-400 hover:text-gray-500" onClick={() => handleAccordionExpand(folder, child_folders[0])}>⮟</div>}
+                            </div>
+                        {folder.expanded && (
+                            <div className="ml-5">
+                                {child_folders.map((child) => (
+                                    <button 
+                                        key={child.id} 
+                                        onClick={() => selectFolder(child)} 
+                                        onContextMenu={(event) => handleContext(event, child)}
+                                        className={getButtonClass(child)}
+                                    >
+                                        ⇨ {child.folder_name}
+                                    </button>                                      
+                                ))}
+                            </div>
+                        )}
                     </div>
-                    );      
+                );      0
             }
-            return null;
+            // return null;
         });
     };
     
